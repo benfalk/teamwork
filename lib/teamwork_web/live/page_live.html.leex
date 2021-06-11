@@ -55,3 +55,15 @@
     <p><br><b><em>Output:</em></b> <span x-text="name"></p>
   </div>
 </section>
+
+<section class="grid grid-cols-1 gap-4">
+  <div>
+    <h2 class="text-red-500 text-5xl font-bold text-center">Tailwind CSS with AlpineJS</h2>
+    <p class="mt-5 font-bold text-center">Red Title with Colored Counter Buttons</p>
+  </div>
+  <div class="mt-10 flex justify-center" x-data="{ count: 0 }">
+    <button class="btn-redish" x-on:click="count--">Decrement</button>
+    <code>count: </code><code x-text="count"></code>
+    <button class="btn-greenish" x-on:click="count++">Increment</button>
+  </div>
+</section>

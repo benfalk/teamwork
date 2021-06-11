@@ -1,0 +1,8 @@
+@layer components {
+  .btn-redish {
+    @apply bg-red-300 hover:bg-red-600 text-blue-800 font-bold py-2 px-4 rounded;
+  }
+  .btn-greenish {
+    @apply bg-green-300 hover:bg-green-600 text-blue-800 font-bold py-2 px-4 rounded;
+  }
+}

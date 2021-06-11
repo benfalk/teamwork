@@ -1,4 +1,15 @@
-/* This file is for your main application css. */
+/* Import tailwind - with postcss-import installed */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* custom styles - put after base imports! */
+@import "./custom-styles.css";
+
+/* import custom components */
+@import "./components/buttons.css";
+
+/* default phoenix styles - eventually remove */
 @import "./phoenix.css";
 
 /* LiveView specific classes for your customizations */
