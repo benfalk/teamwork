@@ -7,6 +7,7 @@ defmodule Teamwork.Context do
     quote do
       import Ecto.Changeset
       import Ecto.Query, only: [from: 2, from: 1]
+      alias Teamwork.Repo
     end
   end
 end

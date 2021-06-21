@@ -74,7 +74,7 @@
                       -->
                       <%= link "Sign Out", to: Routes.auth_path(@conn, :delete), method: "delete", class: "block px-4 py-2 account-link hover:text-white" %>
                   </div>
-                <%= else %>
+                <% else %>
                   <a class="button" href="<%= Routes.auth_path(@conn, :request, "google") %>">
                     <i class="fab fa-google"></i>
                     Sign in with Google
@@ -150,17 +150,17 @@
                   <i class="fas fa-plus mr-3"></i> New Report
               </button> -->
           </header>
-      
+
           <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
               <main class="w-full flex-grow p-6">
                   <%= @inner_content %>
               </main>
-      
+
               <footer class="w-full bg-white text-right p-4">
                   Built by <a target="_blank" href="http://benfalk.com" class="underline">Ben Falk</a>.
               </footer>
           </div>
-          
+
       </div>
 
       <!-- Font Awesome -->

@@ -1,8 +1,7 @@
 defmodule Teamwork.Account do
   use Teamwork.Context
   require Logger
-  alias Teamwork.Schema.User
-  alias Teamwork.Repo
+  alias Teamwork.Schema.{Team, TeamMember, User}
 
   def find_or_create_from_auth(%{strategy: Ueberauth.Strategy.Google} = auth) do
     find_or_create(%{
@@ -16,6 +15,18 @@ defmodule Teamwork.Account do
 
     {:error, "auth not supported"}
   end
+
+  def fetch_teams(%User{id: id}) do
+    from(
+      team in Team,
+      join: member in TeamMember,
+      on: member.user_id == ^id and member.team_id == team.id,
+      select: team
+    )
+    |> Repo.all()
+  end
+
+  def fetch_teams(nil), do: []
 
   # Private Functions
 

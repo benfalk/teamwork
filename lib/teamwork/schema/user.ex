@@ -1,10 +1,13 @@
 defmodule Teamwork.Schema.User do
   use Teamwork.Schema
   alias __MODULE__, as: User
+  alias Teamwork.Schema.TeamMember
 
   schema "users" do
     field(:email, :string)
     field(:avatar, :string)
+    has_many(:team_members, TeamMember)
+    has_many(:teams, through: [:team_members, :team])
     timestamps()
   end
 

@@ -9,10 +9,18 @@ defmodule Teamwork.Repo.Migrations.AddUsersTable do
       timestamps()
     end
 
-    execute("""
-    CREATE UNIQUE INDEX index_accounts_lowercase_email
-    ON users
-    USING btree (lower((email)::text));
-    """)
+    execute(
+      # UP
+      """
+      CREATE UNIQUE INDEX index_accounts_lowercase_email
+      ON users
+      USING btree (lower((email)::text));
+      """,
+
+      # Down
+      """
+      DROP INDEX index_accounts_lowercase_email;
+      """
+    )
   end
 end
