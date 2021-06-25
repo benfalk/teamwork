@@ -21,7 +21,7 @@ defmodule Teamwork.Account do
       team in Team,
       join: member in TeamMember,
       on: member.user_id == ^id and member.team_id == team.id,
-      select: team
+      select: %{team: team, role: member.role}
     )
     |> Repo.all()
   end
